@@ -1,0 +1,11 @@
+Fundamentals :- 
+	1 . Prime number
+	2 . Odd-Even
+	3 . Digit reverse
+	4 . digit sum
+	5 . 
+Good level :-
+	1 . Hanoii Tower
+	2 . Prefix-Postfix
+	3 . Polynomial sum/product
+	4 . 9 queens
