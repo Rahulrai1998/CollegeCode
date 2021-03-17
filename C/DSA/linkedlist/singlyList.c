@@ -57,6 +57,10 @@ int main()
 			case 5 :
 				break ; 
 			case 6 :
+				printf("Delete First\n");
+				del = delete_first(&head);
+				if(del != -9999)
+					printf("%d is deleted\n",del);
 				break ; 
 			case 7 :
 				printf("Delete Last\n");
@@ -150,6 +154,20 @@ void insert_last(nod**head , int item)
 	return ; 
 	
 }
+int delete_first(nod**head)
+{
+	if((*head) == NULL)
+	{
+		printf("Empty List");
+		return -9999;
+	}
+	nod * temp = (*head) ;
+	int item = temp -> info ; 
+	*head = (*head)->next ;
+	temp->next = NULL ; 
+	free(temp);
+	return(item);
+}
 int delete_last(nod**head)
 {
 	if((*head) == NULL)
@@ -170,8 +188,6 @@ int delete_last(nod**head)
 		*head = NULL ; 
 	else
 		locp->next = NULL ;
-	 
-	free(loc);
+	 free(loc);
 	return(item);
-	
 }
