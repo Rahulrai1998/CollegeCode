@@ -22,7 +22,7 @@ void reverse_list(nod*);
 int main()
 {
 	nod * head = NULL ;
-	int choice , data , nodeCount,del; 
+	int choice , data , nodeCount,del,item; 
 	while(1)
 	{
 		printf("List :-\n1 . Create List\n2 . Traverse List\n3 . Insert at first\n4 . Insert at last\n5 . Insert at position\n6 . Delete first\n7 . Delete last\n8 . Delete the element\n9 . Reverse list\n0 . Exit\n\nChoose any option = ");
@@ -61,6 +61,8 @@ int main()
 			case 7 :
 				printf("Delete Last\n");
 				del = delete_last(&head);
+				if(del!= -9999)
+					printf("%d is deleted\n",del);
 				break ; 
 			case 8 :
 				break ;
@@ -156,15 +158,19 @@ int delete_last(nod**head)
 		return -9999; 
 	}
 	nod *loc , *locp ; 
-	locp = *head;
-	loc = (*head) -> next ; 
+	locp = NULL;
+	loc = (*head); 
 	while(loc->next!=NULL)
 	{
 		loc = loc->next;
 		locp = locp->next;
 	}
 	int item = loc->info;
-	locp->next = NULL;
+	if(loc == (*head))
+		*head = NULL ; 
+	else
+		locp->next = NULL ;
+	 
 	free(loc);
 	return(item);
 	
